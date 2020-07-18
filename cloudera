@@ -36,6 +36,7 @@
    echo "192.168.0.52    namenode.youngthink.co.kr" >> /etc/hosts
    
    (공통)
+   alternatives --config java
 
    host -v -t A $(hostname)
    
