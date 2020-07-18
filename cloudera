@@ -1,0 +1,16 @@
+1. 제거
+   (네임노드)
+   service cloudera-scm-agent stop
+   service cloudera-scm-server stop
+   
+   (데이터노드)
+   service cloudera-scm-agent stop
+   service cloudera-scm-server stop
+   
+   (네임노드)
+   yum remove 'cloudera-manager-*'
+   yum clean all
+   /usr/share/cmf/uninstall-cloudera-manager.sh
+   yum clean all
+   
+   
