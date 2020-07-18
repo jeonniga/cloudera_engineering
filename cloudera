@@ -2,14 +2,10 @@
    (네임노드)
    service cloudera-scm-agent stop
    service cloudera-scm-server stop
-   systemctl stop firewalld
-   systemctl disable firewalld
    
    (데이터노드)
    service cloudera-scm-agent stop
    service cloudera-scm-server stop
-   systemctl stop firewalld
-   systemctl disable firewalld
    
    (네임노드)
    yum remove 'cloudera-manager-*'
