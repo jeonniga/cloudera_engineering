@@ -14,3 +14,67 @@
    yum clean all
    
    
+2. 설치전 단계
+   (네임노드)
+   hostnamectl set-hostname namenode.youngthink.co.kr
+   hostname
+   
+   echo 'HOSTNAME=namenode.youngthink.co.kr' >> /etc/sysconfig/network
+   echo "192.168.0.50    datanode1" >> /etc/hosts
+   echo "192.168.0.51    datanode1" >> /etc/hosts
+
+   host -v -t A $(hostname)
+   
+   systemctl stop firewalld
+   systemctl disable firewalld
+   
+   vi /etc/selinux/config
+   SELINUX=disabled
+   
+   setenforce 0
+   
+   yum install ntp
+   
+   
+   echo 'server 0.pool.ntp.org' >> /etc/ntp.conf
+   echo 'server 1.pool.ntp.org' >> /etc/ntp.conf
+   echo 'server 2.pool.ntp.org' >> /etc/ntp.conf
+   
+   sudo systemctl start ntpd
+   sudo systemctl enable ntpd
+   
+   ntpdate -u 0.pool.ntp.org
+   
+ 
+ 3. 설치
+    yum list installed mariadb\*
+    yum remove -y mariadb*
+    yum install mariadb-server mariadb.x86_64
+    
+    CREATE DATABASE scm DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON scm.* TO  'scm'@'%' IDENTIFIED BY 'ytglobal@3400';
+    CREATE DATABASE amon DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON amon.* TO  'amon'@'%' IDENTIFIED BY 'ytglobal@3400';
+    CREATE DATABASE rman DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON rman.* TO  'rman'@'%' IDENTIFIED BY 'ytglobal@3400';
+    CREATE DATABASE hue DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON hue.* TO  'hue'@'%' IDENTIFIED BY 'ytglobal@3400';
+    CREATE DATABASE scm DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON scm.* TO  'scm'@'%' IDENTIFIED BY 'ytglobal@3400';
+    CREATE DATABASE scm DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON scm.* TO  'scm'@'%' IDENTIFIED BY 'ytglobal@3400';
+    CREATE DATABASE scm DEFAULT CHARARCTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+    GRANT ALL ON scm.* TO  'scm'@'%' IDENTIFIED BY 'ytglobal@3400';
+    
+    systemctl start mariadb
+    systemctl status mariadb
+    mysql_secure_installation
+    systemctl enable mariadb
+    
+    
+    
+
+
+   
+   
+   
