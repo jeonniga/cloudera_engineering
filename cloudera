@@ -16,6 +16,9 @@
    yum clean all
    #만약 제거에서 에러가 발생하면
    rm -rf /usr/share/cmf
+   #특히 호스트 불량일때
+   rm /var/lib/cloudera-scm-agent/cm_guid
+
    
    
 2. 설치전 단계
@@ -64,7 +67,7 @@
  3. 설치
     yum list installed mariadb\*
     yum remove -y mariadb*
-    yum install mariadb-server mariadb.x86_64
+    yum install mariadb-server mariadb
     
     
     systemctl start mariadb
