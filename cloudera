@@ -24,8 +24,18 @@
    hostname
    
    echo 'HOSTNAME=namenode.youngthink.co.kr' >> /etc/sysconfig/network
-   echo "192.168.0.50    datanode1" >> /etc/hosts
-   echo "192.168.0.51    datanode1" >> /etc/hosts
+   echo "192.168.0.50    datanode1.youngthink.co.kr" >> /etc/hosts
+   echo "192.168.0.52    namenode.youngthink.co.kr" >> /etc/hosts
+   
+   (데이터 노드)
+   hostnamectl set-hostname datanode1.youngthink.co.kr
+   hostname
+   
+   echo 'HOSTNAME=datanode1.youngthink.co.kr' >> /etc/sysconfig/network
+   echo "192.168.0.50    datanode1.youngthink.co.kr" >> /etc/hosts
+   echo "192.168.0.52    namenode.youngthink.co.kr" >> /etc/hosts
+   
+   (공통)
 
    host -v -t A $(hostname)
    
