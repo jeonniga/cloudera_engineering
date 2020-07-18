@@ -8,8 +8,6 @@
    service cloudera-scm-server stop
    
    (네임노드)
-   sudo rm -Rf /usr/share/cmf /var/lib/cloudera* /var/cache/yum/cloudera*
-
    yum remove 'cloudera-manager-*'
    yum clean all
    /usr/share/cmf/uninstall-cloudera-manager.sh
