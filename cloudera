@@ -14,6 +14,8 @@
    yum clean all
    sudo rm -Rf /usr/share/cmf /var/lib/cloudera* /var/cache/yum/cloudera*
    yum clean all
+   #만약 제거에서 에러가 발생하면
+   rm -rf /usr/share/cmf
    
    
 2. 설치전 단계
